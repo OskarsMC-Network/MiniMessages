@@ -1,0 +1,9 @@
+# Documentation: COMING SOON
+
+join-message:
+  enabled: false
+  message: "<white>$player$ has joined the game.</white>"
+
+quit-message:
+  enabled: false
+  message: "<white>$player$ has quit the game.</white>"

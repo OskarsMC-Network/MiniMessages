@@ -1,0 +1,8 @@
+name: MiniMessages
+version: ${project.version}
+main: com.oskarsmc.minimessages.MiniMessages
+api-version: 1.16
+prefix: MiniMessages
+authors: [ OskarsMC, OskarZyg ]
+description: A plugin to customise messages using MiniMessage!
+website: https://software.oskarsmc.com/
