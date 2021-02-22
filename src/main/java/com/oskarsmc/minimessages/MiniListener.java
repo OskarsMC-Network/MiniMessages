@@ -13,14 +13,14 @@ public class MiniListener implements Listener {
     private static final LegacyComponentSerializer legacyComponentSerializer = BukkitComponentSerializer.legacy();
 
     @EventHandler
-    public void PlayerJoinEvent(PlayerJoinEvent event) {
+    public void playerJoinEvent(PlayerJoinEvent event) {
         if (ConfigManager.getMiniMessagesConfig().isJoinEnabled()) {
             event.setJoinMessage(legacyComponentSerializer.serialize(ConfigManager.getJoinMessage(event.getPlayer().getName())));
         }
     }
 
     @EventHandler
-    public void PlayerQuitEvent(PlayerQuitEvent event) {
+    public void playerQuitEvent(PlayerQuitEvent event) {
         if (ConfigManager.getMiniMessagesConfig().isQuitEnabled()) {
             event.setQuitMessage(legacyComponentSerializer.serialize(ConfigManager.getQuitMessage(event.getPlayer().getName())));
         }

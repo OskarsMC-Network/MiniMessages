@@ -2,19 +2,18 @@ package com.oskarsmc.minimessages;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
-import org.bukkit.entity.Player;
 
 public class ConfigManager {
-    private static final MiniMessages plugin = MiniMessages.getPlugin(MiniMessages.class);
-    private static final MiniMessage miniMessage = MiniMessage.get();
+    private static final MiniMessages PLUGIN = MiniMessages.getPlugin(MiniMessages.class);
+    private static final MiniMessage MINI_MESSAGE = MiniMessage.get();
     private static MiniMessagesConfig miniMessagesConfig;
 
     public static Component getJoinMessage(String playerName) {
-        return miniMessage.parse(miniMessagesConfig.getJoinMsg().replace("$player$", playerName));
+        return MINI_MESSAGE.parse(miniMessagesConfig.getJoinMsg().replace("$player$", playerName));
     }
 
     public static Component getQuitMessage(String playerName) {
-        return miniMessage.parse(miniMessagesConfig.getJoinMsg().replace("$player$", playerName));
+        return MINI_MESSAGE.parse(miniMessagesConfig.getJoinMsg().replace("$player$", playerName));
     }
 
     public static MiniMessagesConfig getMiniMessagesConfig() {
@@ -22,13 +21,13 @@ public class ConfigManager {
     }
 
     public static void reloadConfig() {
-        plugin.getConfig().options().copyDefaults(true);
-        plugin.saveConfig();
+        PLUGIN.getConfig().options().copyDefaults(true);
+        PLUGIN.saveConfig();
         miniMessagesConfig = new MiniMessagesConfig(
-                plugin.getConfig().getBoolean("join-message.enabled"),
-                plugin.getConfig().getString("join-message.message"),
-                plugin.getConfig().getBoolean("quit-message.enabled"),
-                plugin.getConfig().getString("quit-message.message")
+                PLUGIN.getConfig().getBoolean("join-message.enabled"),
+                PLUGIN.getConfig().getString("join-message.message"),
+                PLUGIN.getConfig().getBoolean("quit-message.enabled"),
+                PLUGIN.getConfig().getString("quit-message.message")
         );
     }
 }
