@@ -1,5 +1,7 @@
 package com.oskarsmc.minimessages;
 
+import org.bukkit.configuration.file.FileConfiguration;
+
 public class MiniMessagesConfig {
     private final boolean joinEnabled;
     private final String joinMsg;
@@ -7,12 +9,12 @@ public class MiniMessagesConfig {
     private final boolean quitEnabled;
     private final String quitMsg;
 
-    public MiniMessagesConfig(boolean joinEnabled, String joinMsg, boolean quitEnabled, String quitMsg) {
-        this.joinEnabled = joinEnabled;
-        this.joinMsg = joinMsg;
+    public MiniMessagesConfig(FileConfiguration fileConfiguration) {
+        this.joinEnabled = fileConfiguration.getBoolean("join-message.enabled");
+        this.joinMsg = fileConfiguration.getString("join-message.message");
 
-        this.quitEnabled = quitEnabled;
-        this.quitMsg = quitMsg;
+        this.quitEnabled = fileConfiguration.getBoolean("quit-message.enabled");
+        this.quitMsg = fileConfiguration.getString("quit-message.message");
     }
 
     public boolean isQuitEnabled() {

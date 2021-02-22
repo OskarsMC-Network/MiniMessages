@@ -23,11 +23,6 @@ public class ConfigManager {
     public static void reloadConfig() {
         PLUGIN.getConfig().options().copyDefaults(true);
         PLUGIN.saveConfig();
-        miniMessagesConfig = new MiniMessagesConfig(
-                PLUGIN.getConfig().getBoolean("join-message.enabled"),
-                PLUGIN.getConfig().getString("join-message.message"),
-                PLUGIN.getConfig().getBoolean("quit-message.enabled"),
-                PLUGIN.getConfig().getString("quit-message.message")
-        );
+        miniMessagesConfig = new MiniMessagesConfig(PLUGIN.getConfig());
     }
 }
